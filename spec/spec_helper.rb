@@ -14,10 +14,7 @@ RSpec.configure do |config|
 
   config.before(:all) do
     DirectUpload.configure do |config|
-      config.aws_access_key_id = ENV['AWS_ACCESS_KEY_ID']
       config.aws_bucket_name = ENV['AWS_BUCKET_NAME']
-      config.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-      config.aws_region = ENV['AWS_REGION']
     end
   end
 end

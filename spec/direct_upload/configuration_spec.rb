@@ -22,7 +22,7 @@ module DirectUpload
     end
 
     describe 'attributes' do
-      %w[aws_access_key_id aws_bucket_name aws_secret_access_key aws_region].each do |key|
+      %w[aws_bucket_name].each do |key|
         it "can set #{key} " do
           DirectUpload.configure do |config|
             config.send("#{key}=", '/awesome')
@@ -36,14 +36,11 @@ module DirectUpload
     describe 'missing connection variables' do
       after do
         DirectUpload.configure do |config|
-          config.aws_access_key_id = ENV['AWS_ACCESS_KEY_ID']
           config.aws_bucket_name = ENV['AWS_BUCKET_NAME']
-          config.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-          config.aws_region = ENV['AWS_REGION']
         end
       end
 
-      %w[aws_access_key_id aws_bucket_name aws_secret_access_key aws_region].each do |key|
+      %w[aws_bucket_name].each do |key|
         it "should throw and error if #{key} is nil" do
           DirectUpload.configure do |config|
             config.send("#{key}=", nil)
