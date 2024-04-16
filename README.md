@@ -26,10 +26,7 @@ $ gem install direct_upload -l git://github.com/cameronbarker/direct_upload.git
 
 ```ruby
 DirectUpload.configure do |config|
-  config.aws_access_key_id = 'AWS_ACCESS_KEY_ID'
-  config.aws_secret_access_key = 'AWS_SECRET_ACCESS_KEY'
   config.aws_bucket_name = 'AWS_BUCKET_NAME'
-  config.aws_region = 'AWS_REGION'
 end
 ```
 
